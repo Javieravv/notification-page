@@ -31,9 +31,11 @@ export const NotificationCard: FC<Props> = ({
         <Container fluid="md" as={'article'}
             className={`notification-card d-flex flex-row p-3 mb-1 rounded-3 ${!messagereaded ? 'message-readed' : ''} `}
         >
+            <h2 className='d-none'>Card {name} </h2>
             <Image
                 className='image-card me-3'
                 src={avatar}
+                alt={avatar}
             />
             <Row
                 as={'div'}
@@ -54,6 +56,7 @@ export const NotificationCard: FC<Props> = ({
                                     <Image
                                         className='ms-2 mt-1'
                                         src='/images/circle-noread.svg'
+                                        alt="No leído"
                                     />
                                 ) : ''
                             }
@@ -66,6 +69,7 @@ export const NotificationCard: FC<Props> = ({
                                 <Col className=' d-flex flex-row-reverse '>
                                     <Image className='image-card '
                                         src={pictureComment}
+                                        alt={pictureComment}
                                     />
                                 </Col>
                             )

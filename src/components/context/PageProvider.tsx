@@ -17,6 +17,15 @@ export const PageProvider: FC<Props> = ({ children }) => {
             }
         }))
 
+    const [totNotificationsReaded, setTotNotificationsReaded] = useState(
+        messagesNotification.reduce((acc, item) => {
+            if ( item.messageReaded === false ) {
+                acc++
+            }
+            return acc
+        }, 0)
+    )
+
     const funcionPrueba = () => {
         setMessagesNotification(
             messagesNotification.map((message) => {
@@ -26,11 +35,12 @@ export const PageProvider: FC<Props> = ({ children }) => {
                 }
             })
         )
+        setTotNotificationsReaded (0)
     }
 
     return (
         <PageContext.Provider value={{
-            totalNotifications: dataNotifications.length,
+            totalNotifications: totNotificationsReaded,
             messages: messagesNotification,
             setReadAllNotifications: funcionPrueba
         }}>
