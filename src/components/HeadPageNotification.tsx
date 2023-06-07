@@ -4,6 +4,7 @@ import { PageContext } from './context/PageContext';
 
 export const HeadPageNotification = () => {
     const context = useContext(PageContext)
+
     return (
         <nav className='d-flex flex-row justify-content-between align-items-center p-3'>
             <div>
@@ -11,6 +12,7 @@ export const HeadPageNotification = () => {
             </div>
             <a 
                 href='#'
+                onClick={ () => context?.setReadAllNotifications() }
                 >
                     Mark all as read
                 </a>

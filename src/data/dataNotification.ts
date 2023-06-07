@@ -30,7 +30,7 @@ export const dataNotifications: INotification[] = [
         name: 'Rizky Hasanuddin',
         icono: '/images/avatar-rizky-hasanuddin.webp',
         messageMain: 'sent you a private message',
-        messageReaded: true,
+        messageReaded: false,
         privateMessage: `Hello, thanks for setting up the Chess Club. I've been a menmber for a few weeks now and I'm already having lots of fun and improving my game.`,
         dateMessage: new Date()
     },
@@ -57,5 +57,13 @@ export const dataNotifications: INotification[] = [
         messageLink: 'Chess Club',
         messageReaded: true,
         dateMessage: new Date()
-    }
+    },
+    {
+        name: 'Mark Webber',
+        icono: '/images/avatar-mark-webber.webp',
+        messageMain: 'reacted to your recent post',
+        messageLink: 'My first tounament today!',
+        messageReaded: false,
+        dateMessage: new Date()
+    },
 ]

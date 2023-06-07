@@ -1,4 +1,4 @@
-import { ReactNode, FC } from "react"
+import { ReactNode, FC, useState } from "react"
 import { PageContext } from "./PageContext";
 import { dataNotifications } from "../../data/dataNotification";
 
@@ -7,11 +7,25 @@ interface Props {
 }
 
 export const PageProvider:FC<Props> = ( {children} ) => {
+    const [messagesNotification, setMessagesNotification] = useState(dataNotifications)
+
+    const funcionPrueba = () => {
+        setMessagesNotification(
+            messagesNotification.map((message) => {
+                return {
+                    ...message,
+                    messageReaded: true
+                }
+            })
+        )
+        console.log ('ESTO ES UNA PRUEBA', messagesNotification)
+    }
 
     return (
         <PageContext.Provider value= {{
-            totalNotifications: 8,
-            messages: dataNotifications
+            totalNotifications: dataNotifications.length,
+            messages: messagesNotification,
+            setReadAllNotifications: funcionPrueba
         } }>
             { children }
         </PageContext.Provider>

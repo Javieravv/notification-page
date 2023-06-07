@@ -11,7 +11,7 @@ export interface INotification {
 
 export type NotificationType = {
     // nombre: string;
-    // setNombre: () => void;
+    setReadAllNotifications: () => void;
     totalNotifications: number;
     messages: INotification[];
 }

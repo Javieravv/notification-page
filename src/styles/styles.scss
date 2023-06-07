@@ -19,6 +19,15 @@ p {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: $color-Blue;
+    font-weight: bold;
+}
+
 
 /*Componente NotificationCard*/
 .notification-card {
@@ -27,6 +36,7 @@ p {
     .image-card {
         width:  60px;
         height: 60px;
+        right: 0;
     }
 
     .message-send {
@@ -37,4 +47,8 @@ p {
         color: $color-Red;
         font-size: 48px;
     }
+}
+
+.message-readed {
+    background-color: $color-BlueLight;
 }
