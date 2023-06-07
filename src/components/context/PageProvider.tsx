@@ -1,13 +1,21 @@
 import { ReactNode, FC, useState } from "react"
 import { PageContext } from "./PageContext";
 import { dataNotifications } from "../../data/dataNotification";
+import { booleanRandom, dateRandom } from "../../data/utils";
 
 interface Props {
     children: ReactNode;
 }
 
-export const PageProvider:FC<Props> = ( {children} ) => {
-    const [messagesNotification, setMessagesNotification] = useState(dataNotifications)
+export const PageProvider: FC<Props> = ({ children }) => {
+    const [messagesNotification, setMessagesNotification] = useState(
+        dataNotifications.map((item) => {
+            return {
+                ...item,
+                messageReaded: booleanRandom(),
+                dateMessage: dateRandom ( new Date('2023-01-01'), new Date() )
+            }
+        }))
 
     const funcionPrueba = () => {
         setMessagesNotification(
@@ -18,16 +26,15 @@ export const PageProvider:FC<Props> = ( {children} ) => {
                 }
             })
         )
-        console.log ('ESTO ES UNA PRUEBA', messagesNotification)
     }
 
     return (
-        <PageContext.Provider value= {{
+        <PageContext.Provider value={{
             totalNotifications: dataNotifications.length,
             messages: messagesNotification,
             setReadAllNotifications: funcionPrueba
-        } }>
-            { children }
+        }}>
+            {children}
         </PageContext.Provider>
     )
 }

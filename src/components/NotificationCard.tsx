@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
+import { textDiasDate } from '../data/utils';
 
 interface Props {
     name: string;
@@ -24,8 +25,10 @@ export const NotificationCard: FC<Props> = ({
     privatemessage,
     pictureComment
 }) => {
+    // Vemos las diferencias en las fechas
+    const messageDifDays = textDiasDate ( datemessage.getTime(), new Date().getTime() )
     return (
-        <Container as={'article'}
+        <Container fluid="md" as={'article'}
             className={`notification-card d-flex flex-row p-3 mb-1 rounded-3 ${!messagereaded ? 'message-readed' : ''} `}
         >
             <Image
@@ -55,7 +58,7 @@ export const NotificationCard: FC<Props> = ({
                                 ) : ''
                             }
                         </p>
-                        <Col as={'div'}>5 days ago {datemessage.toString()} </Col>
+                        <Col as={'div'}> { messageDifDays } </Col>
                     </Col>
                     {
                         (pictureComment !== undefined && pictureComment?.length > 0)

@@ -66,4 +66,14 @@ export const dataNotifications: INotification[] = [
         messageReaded: false,
         dateMessage: new Date()
     },
+    {
+        name: 'Kimberly Smith',
+        icono: '/images/avatar-kimberly-smith.webp',
+        messageMain: 'reacted to your recent post and send a message to you',
+        messageLink: 'My first challenge!',
+        messageReaded: false,
+        dateMessage: new Date(),
+        privateMessage: `Hello, thanks for setting up the Chess Club. I've been a menmber for a few weeks now and I'm already having lots of fun and improving my game.`,
+    }
+
 ]
