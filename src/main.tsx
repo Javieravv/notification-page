@@ -6,6 +6,7 @@ import './styles/styles.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode> 
+        <h1 className='d-none'>Notificacion Page</h1>
         <NotificacionPage />
     </React.StrictMode>,
 )
